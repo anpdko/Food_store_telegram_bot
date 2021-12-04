@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Суші, Піца, Бургер - Головна сторінка</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="static/main/img/logo.jpg">
+</head>
+<body>
+	<div class="container">
+		<header>
+         <nav class="main_menu">
+            <img class="logo" src="static/main/img/logo.jpg">
+            <ul>
+               <li><a href="{% url 'home' %}">Головна</a></li>
+               <li><a href="#">Доставка</a></li>
+               <li><a href="#">Про нас</a></li>
+               <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="https://t.me/online_food_store_bot"><i class="fab fa-telegram-plane"></i></a></li>
+            </ul>
+            <div class="searchMain">
+               <i class="fas fa-search"></i>
+               <input class="search" type="search" placeholder="Пошук...">
+            </div>
+				<a href="{% url 'cart' %}" class="cart-shop">
+					<p id="num_cart_p">1</p>
+					<i class="fas fa-shopping-cart"></i>
+				</a>
+         </nav>
+		</header>
+			<section class="main">
+				<nav class="food_menu">
+					<ul>
+						<li class="toggle_li"><a><i class="fas fa-bars"></i> Меню</a></li>
+						<li class="menu_li"><a href="{% url 'discount' %}"><i class="fas fa-percent"></i> Акції</a></li>
+						<li class="menu_li"><a href="{% url 'pizza' %}"><i class="fas fa-pizza-slice"></i> Піца</a></li>
+						<li class="menu_li"><a href="{% url 'sushi' %}"><i class="fas fa-bacon"></i> Суші</a></li>
+						<li class="menu_li"><a href="{% url 'burger' %}"><i class="fas fa-hamburger"></i> Бургери</a></li>
+						<li class="menu_li"><a href="{% url 'drink' %}"><i class="fas fa-coffee"></i> Напої</a></li>
+					</ul>
+				</nav>
+
+				{% block content %} 
+	
+				{% endblock content %}
+
+		</section>
+		{% if context.paginator.num_pages > 1 %}
+			{% include "main/includes/paginator.html" %}
+		{% endif %}
+	</div>
+	<footer>
+		<ul>
+			<li><a href="">380ХХХХХХХХХ </a></li>
+			<li><a href="">380ХХХХХХХХХ </a></li>
+			<li><a href="">ХХХХХХХ@gmail.com </a></li>
+			<li><a href="">Instagram  </a></li>
+			<li><a href="">Тех. підтримка </a></li>
+		</ul>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="{% static 'main/script.js' %}"></script>
+	<script>
+		$( document ).ready(function(){
+			$('.toggle_li').on('click', function(){
+				$('.menu_li').toggleClass('open');
+			})
+		})
+		$('.shopping-cart').on('click', function(){
+			var that = $(this).closest('.item').find('img');
+			var bascket = $(".cart-shop");
+			var w = that.width();
+
+			that.clone()
+			.css({'width' : w,
+			'position' : 'absolute',
+			'z-index' : '9999',
+			top: that.offset().top,
+			left:that.offset().left})
+			.appendTo("body")
+			.animate({opacity: 0.05,
+				left: bascket.offset()['left'],
+				top: bascket.offset()['top'],
+				width: 20}, 1000, function() {  
+						$(this).remove();
+				});
+		});
+	</script>
+
+</body>
+</html>

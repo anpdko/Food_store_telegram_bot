@@ -1,0 +1,20 @@
+{% extends "main/main.html" %}
+
+{% block content %}
+<div class="container-item">
+	{% for item in context%}
+		{% if item.category == category %}
+			<div class="item">
+				<div class="food_img">
+					<img src="media/{{ item.image }}">
+				</div>
+				<div class="info_food">
+					<p class="name_food">{{item.name}}</p>
+					<p class="price">{{item.price}}</p>
+				</div>
+				<button onclick="add('{{item.id|upper}}')" class="shopping-cart" title="Добавити у кошик"><i class="fa fa-shopping-cart"></i></button>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+{% endblock content %}
