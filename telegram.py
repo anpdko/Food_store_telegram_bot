@@ -5,7 +5,7 @@ import sqlite3 as lite
 import time
 import sys
 
-client  = telebot.TeleBot(<ТОКЕН>)
+client  = telebot.TeleBot('2122018386:AAH5bB0h7UaXBcG8QXcqcrgtefPSKZX1OsU')
 
 
 def message_step1(mes):
