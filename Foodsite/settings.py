@@ -121,9 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Создать папку для загрузки файлов
 MEDIA_URL = '/media/' # путь для сохранения в файл
+
+STATIC_ROOT = os.path.join(BASE_DIR, '/main/static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Создать папку для загрузки файлов
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

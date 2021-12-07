@@ -1,11 +1,9 @@
 import telebot
 from telebot import types
-#import pytelegamapi
 import sqlite3 as lite
 import time
-import sys
 
-client  = telebot.TeleBot('2122018386:AAH5bB0h7UaXBcG8QXcqcrgtefPSKZX1OsU')
+client  = telebot.TeleBot('5072105165:AAHC1gODrStip9TfKbmNZK_EgUIsEm17xcs')
 
 
 def message_step1(mes):

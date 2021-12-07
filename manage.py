@@ -17,8 +17,8 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-from subprocess import Popen
+# from subprocess import Popen
 
 if __name__ == '__main__':
-    Popen('python telegram.py')
+    # Popen('python telegram.py')
     main()

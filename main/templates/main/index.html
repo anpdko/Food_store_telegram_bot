@@ -5,11 +5,11 @@
 		{% for item in context%}
 		<div class="item">
 			<div class="food_img">
-				<img class="block_img" src="media/{{ item.image|upper }}">
+				<img class="block_img" src="media/{{ item.image }}">
 			</div>
 			<div class="info_food">
-				<p class="name_food">{{item.name|upper}}</p>
-				<p class="price">{{item.price|upper}}</p>
+				<p class="name_food">{{item.name}}</p>
+				<p class="price">{{item.price}}</p>
 			</div>
 			<button onclick="add('{{item.id|upper}}')" class="shopping-cart" title="Добавити у кошик"><i class="fa fa-shopping-cart"></i></button>
 		</div>
