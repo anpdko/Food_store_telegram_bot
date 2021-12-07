@@ -3,7 +3,7 @@ from telebot import types
 import sqlite3 as lite
 import time
 
-client  = telebot.TeleBot('5072105165:AAHC1gODrStip9TfKbmNZK_EgUIsEm17xcs')
+client  = telebot.TeleBot('')
 
 
 def message_step1(mes):
